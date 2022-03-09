@@ -3,9 +3,8 @@ const axios = require('axios').default;
 axios
   .get('https://swapi.dev/api/people/')
   .then(response => {
-    this.text = "";
-    response.data.map(character => {
-      this.text+=`
+    const text = response.data.results.map(character => {
+      return `
           <div class="box">
             <article class="media">
               <div class="media-content">
@@ -24,9 +23,9 @@ axios
             </article>
           </div>
       `;
-    });
+    }).join('');
 
-    document.getElementById('section').innerHTML = this.text;
+    document.getElementById('section').innerHTML = text;
   })
   .catch(err => {
     console.log(err);
