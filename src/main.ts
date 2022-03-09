@@ -1,7 +1,7 @@
 const axios = require('axios').default;
 
 axios
-  .get('https://swapi.dev/api/people/1/')
+  .get('https://swapi.dev/api/people/')
   .then(response => {
     this.text = "";
     response.data.map(character => {
